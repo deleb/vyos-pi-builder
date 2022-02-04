@@ -164,6 +164,7 @@ if [ "${PIVERSION}" == "4" ]; then
     curl -s -o ${EFIDIR}/fixup4.dat https://raw.githubusercontent.com/raspberrypi/firmware/master/boot/fixup4.dat 1>&3
     curl -s -o ${EFIDIR}/start4.elf https://raw.githubusercontent.com/raspberrypi/firmware/master/boot/start4.elf 1>&3
     curl -s -o ${EFIDIR}/overlays/dwc2.dtbo https://raw.githubusercontent.com/raspberrypi/firmware/master/boot/overlays/dwc2.dtbo 1>&3
+    curl -s -o ${EFIDIR}/overlays/disable-bt.dtbo https://raw.githubusercontent.com/raspberrypi/firmware/master/boot/overlays/disable-bt.dtbo 1>&3
 elif [ "${PIVERSION}" == "3" ]; then
     curl -s -o ${EFIDIR}/bootcode.bin https://raw.githubusercontent.com/raspberrypi/firmware/master/boot/bootcode.bin 1>&3
     curl -s -o ${EFIDIR}/fixup.dat https://raw.githubusercontent.com/raspberrypi/firmware/master/boot/fixup.dat 1>&3
@@ -184,7 +185,7 @@ arm_64bit=1
  
 # Enable Serial console
 enable_uart=1
-dtoverlay=pi3-disable-bt
+dtoverlay=disable-bt
 ${CM4USB}
 
 # Boot into u-boot
